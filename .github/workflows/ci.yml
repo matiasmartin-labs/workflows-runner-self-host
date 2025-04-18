@@ -7,7 +7,7 @@ on:
 
 jobs:
   raspberry-pi-job:
-    runs-on: [self-hosted, Linux, ARM64]
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
