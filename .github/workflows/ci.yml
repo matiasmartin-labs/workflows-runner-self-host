@@ -1,0 +1,23 @@
+name: Raspberry Pi Job
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  raspberry-pi-job:
+    runs-on: [self-hosted, Linux, ARM64]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: '1.32'
+
+      - name: Show pod info
+        run: |
+          kubectl get pods
