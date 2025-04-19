@@ -15,9 +15,12 @@ jobs:
 
       - name: Install kubectl
         run: |
-          curl -LO "https://dl.k8s.io/release/$(curl -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
+          ARCH=arm64
+          VERSION=$(curl -s https://dl.k8s.io/release/stable.txt)
+          echo "Downloading kubectl version $VERSION for $ARCH"
+          curl -LO https://dl.k8s.io/release/${VERSION}/bin/linux/${ARCH}/kubectl
           chmod +x kubectl
-          sudo mv kubectl /usr/local/bin/
+          sudo mv kubectl /usr/local/bin/kubectl
 
       - name: Show pod info
         run: |
