@@ -15,10 +15,10 @@ jobs:
 
       - name: Install kubectl
         run: |
+          VERSION=v1.28.1
           ARCH=arm64
-          VERSION=$(curl -s https://dl.k8s.io/release/stable.txt)
           echo "Downloading kubectl version $VERSION for $ARCH"
-          curl -LO https://dl.k8s.io/release/${VERSION}/bin/linux/${ARCH}/kubectl
+          curl -LO "https://dl.k8s.io/release/$VERSION/bin/linux/$ARCH/kubectl"
           chmod +x kubectl
           sudo mv kubectl /usr/local/bin/kubectl
 
