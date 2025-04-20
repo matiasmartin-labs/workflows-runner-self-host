@@ -24,4 +24,4 @@ jobs:
 
       - name: Show pod info
         run: |
-          kubectl get deployments
+          kubectl get deployments -n matiasmartin-labs
