@@ -4,11 +4,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-runner-${{ matrix.id }}:
+  test-runner:
     runs-on: self-hosted
     strategy:
       matrix:
         id: [1, 2, 3, 4, 5]
     steps:
-      - name: Sleep a bit
+      - name: Show runner ID
+        run: |
+          echo "Runner ID: ${{ matrix.id }}"
+
+      - name: Simulate work
         run: sleep 60
