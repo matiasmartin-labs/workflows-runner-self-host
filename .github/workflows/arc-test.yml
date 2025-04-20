@@ -1,0 +1,14 @@
+name: Stress Test Runners
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-runner-${{ matrix.id }}:
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        id: [1, 2, 3, 4, 5]
+    steps:
+      - name: Sleep a bit
+        run: sleep 60
